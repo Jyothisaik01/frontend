@@ -58,7 +58,8 @@ import {
   Repeat,
   ShieldCheck,
   Megaphone,
-  Warehouse
+  Warehouse,
+  Download
 } from "lucide-react";
 import InteractiveEarth from "../../components/InteractiveEarth";
 import "./Home.css";
@@ -66,6 +67,8 @@ import "./Home.css";
 const ADMIN_PORTAL_URL = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
   ? 'http://localhost:5174'
   : 'https://inventoryadmin24.vercel.app';
+
+export const MOBILE_APK_DOWNLOAD_URL = "https://expo.dev/artifacts/eas/eWFzPamJ6cm4FUjPeGxLEkfonR8gI6MH-GYJS_Gih5g.apk";
 
 // Clean 3D Isometric Minimalist Banner Slides showcasing our 3 Apps & Signature Platform Features
 const BANNER_SLIDES = [
@@ -433,6 +436,7 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [showMoreFeatures, setShowMoreFeatures] = useState(false);
+  const [copiedApkLink, setCopiedApkLink] = useState(false);
 
   // 3D Parallax Mouse tilt for Dual Device Showcase
   const [deviceTilt, setDeviceTilt] = useState({ x: 0, y: 0 });
@@ -555,6 +559,9 @@ export default function Home() {
             <a href="#overview">Overview</a>
             <a href="#dual-showcase">Dual Experience</a>
             <a href="#three-experiences">Three Experiences</a>
+            <a href="#download-app" className="nav-apk-highlight-link">
+              <Smartphone size={12} /> Android App
+            </a>
             <a href="#highlights">Highlights</a>
             <a href="#ai-trinity">AI Trinity</a>
             <a href="#architecture">Architecture</a>
@@ -708,6 +715,16 @@ export default function Home() {
           </div>
 
           <div className="apple-local-nav-actions">
+            <a
+              href={MOBILE_APK_DOWNLOAD_URL}
+              download="Inventory-Prime.apk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="apple-btn-pill-apk"
+              title="Download Standalone Production APK for Android (109.5 MB)"
+            >
+              <Smartphone size={13} /> <span>Get APK</span>
+            </a>
             <Link to="/customer/login" className="apple-btn-pill-primary">
               <ShoppingBag size={14} /> Shopper
             </Link>
@@ -768,6 +785,15 @@ export default function Home() {
           >
             Open Titan Admin Console <ExternalLink size={14} />
           </a>
+          <a
+            href={MOBILE_APK_DOWNLOAD_URL}
+            download="Inventory-Prime.apk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="apple-hero-cta-btn apk-hero-btn"
+          >
+            <Smartphone size={16} /> Download Mobile App (APK) <span className="apk-hero-badge">Prod v1.0</span>
+          </a>
         </div>
 
         {/* =========================================================
@@ -799,6 +825,16 @@ export default function Home() {
               >
                 <Smartphone size={14} /> Mobile App (Customer Store)
               </button>
+              <a
+                href={MOBILE_APK_DOWNLOAD_URL}
+                download="Inventory-Prime.apk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="apple-view-pill apk-download-pill"
+                title="Download Standalone Production APK for Android (109.5 MB)"
+              >
+                <Download size={13} /> <span>Download APK</span>
+              </a>
             </div>
           </div>
 
@@ -1488,6 +1524,16 @@ export default function Home() {
             <div className="exp-hero-card-cta-row">
               <a href="#customer-features" className="exp-hero-card-cta">
                 Explore Customer App <ArrowRight size={14} />
+              </a>
+              <a
+                href={MOBILE_APK_DOWNLOAD_URL}
+                download="Inventory-Prime.apk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="exp-hero-card-cta exp-hero-card-apk-cta"
+                title="Download Standalone Production APK for Android (109.5 MB)"
+              >
+                <Download size={14} /> Download APK (v1.0.0)
               </a>
             </div>
             <div className="exp-hero-card-image">
@@ -2585,6 +2631,150 @@ export default function Home() {
       </section>
 
       {/* =========================================================
+          3c. NATIVE ANDROID MOBILE APP DOWNLOAD (Direct Production APK)
+      ========================================================== */}
+      <section className="home-apk-download-section" id="download-app">
+        <div className="apk-download-container">
+          <div className="apk-download-glow-bg" />
+          
+          <div className="apk-download-header">
+            <span className="apk-badge-pill">
+              <Smartphone size={13} /> NATIVE ANDROID APP · STANDALONE PRODUCTION APK
+            </span>
+            <h2 className="apk-section-title">
+              Take Inventory Prime Everywhere. <br />
+              Download &amp; Install on Your Phone.
+            </h2>
+            <p className="apk-section-sub">
+              No Expo Go required. Install our standalone production Android APK directly to your phone—connected live to our cloud backend with instant 3D AR Try-On, Voice Search, and real-time carts.
+            </p>
+          </div>
+
+          <div className="apk-showcase-grid">
+            {/* Left Card: Download Action & Highlights */}
+            <div className="apk-info-card">
+              <div className="apk-info-top">
+                <div className="apk-icon-box">
+                  <Smartphone size={28} />
+                </div>
+                <div>
+                  <h3 className="apk-app-name">Inventory Prime for Android</h3>
+                  <div className="apk-meta-row">
+                    <span className="apk-meta-chip version">v1.0.0 Stable</span>
+                    <span className="apk-meta-chip size">109.5 MB</span>
+                    <span className="apk-meta-chip os">Android 8.0+</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="apk-action-group">
+                <a
+                  href={MOBILE_APK_DOWNLOAD_URL}
+                  download="Inventory-Prime.apk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="apk-primary-download-btn"
+                >
+                  <Download size={18} />
+                  <div className="apk-btn-text">
+                    <span className="apk-btn-main">Download Production APK</span>
+                    <span className="apk-btn-sub">Direct high-speed download · 109.5 MB</span>
+                  </div>
+                </a>
+
+                <button
+                  type="button"
+                  className="apk-copy-link-btn"
+                  onClick={() => {
+                    navigator.clipboard.writeText(MOBILE_APK_DOWNLOAD_URL);
+                    setCopiedApkLink(true);
+                    setTimeout(() => setCopiedApkLink(false), 3000);
+                  }}
+                >
+                  {copiedApkLink ? (
+                    <>
+                      <CheckCircle2 size={15} style={{ color: "#10b981" }} /> Copied APK Link!
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={15} /> Copy Direct APK Link
+                    </>
+                  )}
+                </button>
+              </div>
+
+              {/* Native App Highlights */}
+              <div className="apk-features-checklist">
+                <div className="apk-check-item">
+                  <CheckCircle2 size={16} className="check-icon" />
+                  <span><strong>Live AR Virtual Try-On</strong> with real-time camera avatar fit preview</span>
+                </div>
+                <div className="apk-check-item">
+                  <CheckCircle2 size={16} className="check-icon" />
+                  <span><strong>Darwin Spoken Voice Search</strong> &amp; camera visual catalog match</span>
+                </div>
+                <div className="apk-check-item">
+                  <CheckCircle2 size={16} className="check-icon" />
+                  <span><strong>Synchronized Shared Cart</strong> with real-time friend presence</span>
+                </div>
+                <div className="apk-check-item">
+                  <CheckCircle2 size={16} className="check-icon" />
+                  <span><strong>Doorstep Return QR Verification</strong> &amp; instant sub-15ms wallet refunds</span>
+                </div>
+                <div className="apk-check-item">
+                  <CheckCircle2 size={16} className="check-icon" />
+                  <span><strong>Direct Production Cloud Sync</strong> connected to live Render backend</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Card: QR Code & Install Steps */}
+            <div className="apk-qr-card">
+              <div className="apk-qr-box">
+                <div className="apk-qr-frame">
+                  <img
+                    src={`https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(MOBILE_APK_DOWNLOAD_URL)}&bgcolor=ffffff&color=0f172a&margin=4`}
+                    alt="Scan to Download APK"
+                    className="apk-qr-image"
+                  />
+                  <div className="apk-qr-center-badge">
+                    <Smartphone size={18} />
+                  </div>
+                </div>
+                <div className="apk-qr-caption">
+                  <span className="apk-qr-pulse" />
+                  <span>Scan with Android Camera to Install</span>
+                </div>
+              </div>
+
+              {/* 3 Step Installation Guide */}
+              <div className="apk-install-steps">
+                <h4 className="apk-steps-heading">Quick 3-Step Installation:</h4>
+                <div className="apk-step-row">
+                  <div className="step-number">1</div>
+                  <div className="step-text">
+                    <strong>Download APK:</strong> Click the button or scan the QR code above.
+                  </div>
+                </div>
+                <div className="apk-step-row">
+                  <div className="step-number">2</div>
+                  <div className="step-text">
+                    <strong>Tap Install:</strong> Open the file from notifications. If prompted, enable <em>"Install unknown apps"</em>.
+                  </div>
+                </div>
+                <div className="apk-step-row">
+                  <div className="step-number">3</div>
+                  <div className="step-text">
+                    <strong>Launch App:</strong> Open Inventory Prime—no Expo Go needed! Fully standalone.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
           4. 3D EARTH ORBIT & PLANETARY LOGISTICS MESH
       ========================================================== */}
       <section className="apple-closer-look-section" id="closer-look">
@@ -3133,6 +3323,7 @@ export default function Home() {
               Admin Governance
             </a>
             <a href="#dual-showcase">Dual Experience</a>
+            <a href="#download-app">Download Mobile App (APK)</a>
             <a href="#closer-look">3D Earth Centerpiece</a>
           </div>
 
