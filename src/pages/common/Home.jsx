@@ -68,7 +68,7 @@ const ADMIN_PORTAL_URL = typeof window !== 'undefined' && (window.location.hostn
   ? 'http://localhost:5174'
   : 'https://inventoryadmin24.vercel.app';
 
-export const MOBILE_APK_DOWNLOAD_URL = "https://expo.dev/artifacts/eas/FUnzjeQVbRB8y0ZqKmg-spHF2Bb3Z4uRfE2irse-6Ho.apk";
+export const MOBILE_APK_DOWNLOAD_URL = "https://expo.dev/artifacts/eas/8u2s48OwqGRIwoYXLKb_gwRw4-0fr0aT911R74DCtco.apk";
 
 // Clean 3D Isometric Minimalist Banner Slides showcasing our 3 Apps & Signature Platform Features
 const BANNER_SLIDES = [
